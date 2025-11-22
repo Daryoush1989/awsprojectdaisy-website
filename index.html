@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daryoush Waheed - Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      padding: 0;
+      margin: 0;
+      line-height: 1.6;
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+    /* NAVIGATION */
+    nav {
+      background: #ffffffaa;
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 700;
+      color: #007bff;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #e91e63;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .header h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #007bff, #e91e63);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      margin-top: 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    /* CARDS */
+    .card {
+      background: #fff;
+      width: 80%;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: scale(1.02); }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #e91e63;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: #ffffffaa;
+      backdrop-filter: blur(10px);
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#links">Links</a>
+    <a href="#cv">CV</a>
+  </nav>
+
+  <!-- HEADER SECTION -->
+  <div class="header">
+    <h1 id="typing"></h1>
+    <script>
+      const text = "Daryoush Waheed";
+      let i = 0;
+      function typeWriter(){
+        if(i < text.length){
+          document.getElementById("typing").innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 120);
+        }
+      }
+      window.onload = typeWriter;
+    </script>
+    <img src="Dogs.JPG" alt="Profile" class="profile-img" />
+    <p><strong>Loki & Daisy</strong></p>
+  </div>
+
+ <footer>
+    © 2025 Daryoush Waheed — Portfolio
+  </footer>
+
+  <!-- ABOUT ME CARD -->
+  <div class="card" id="about">
+    <h2>About Me</h2>
+    <p>
+      Motivated professional looking to break into Cloud Computing.
+      Passionate about delivering value with accuracy, empathy, and consistency.
+    </p>
+  </div>
+
+  <!-- LINKS CARD -->
+  <div class="card" id="links">
+    <h2>Links</h2>
+    <div class="links">
+      <a href="Daryoush%20Waheed_CV_1.pdf" target="_blank">📄 View CV</a>
+      <a href="https://github.com/Daryoush1989/aws-projects" target="_blank">🐱 GitHub</a>
+      <a href="https://www.linkedin.com/in/daryoush-waheed/" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM SECTION -->
+  <div class="card" id="contact">
+    <h2>Contact Me</h2>
+    <p><strong>Email:</strong> daryoushwaheed@hotmail.com</p>
+    <p><strong>Phone:</strong> 07466554018</p>
+  </div>
+
+</body>
+</html>
+
+</body>
+</html>
