@@ -1,66 +1,134 @@
+awsprojectdaisy-website
+
+Static Website Hosted on AWS (S3 + CloudFront + Route 53 + ACM)
+
+🔗 Live Demo
+
 https://awsprojectdaisy.click
 
-Static website hosted on AWS S3 + CloudFront + Route 53 + ACM
+🧾 Project Overview
 
-🚀 Project Overview
+This project demonstrates how to deploy a fully static website using modern, production-grade AWS cloud architecture.
+It includes secure HTTPS hosting, global content delivery, and custom domain routing.
 
-This project hosts a fully static website using a modern and production-ready AWS architecture.
-The site consists of a simple index.html homepage and an image (Dogs.JPG), delivered globally via CloudFront.
+The goal of this project is to build real-world AWS experience and showcase professional cloud engineering skills to future employers.
 
-The aim of this project is to demonstrate hands-on cloud experience for future employers.
+🏗️ AWS Architecture
 
-🧰 AWS Services Used
+This project uses the following AWS services:
 
-1. Amazon S3
+1. Amazon S3 — Static Website Storage
 
-Hosted the static website files (index.html, Dogs.JPG)
-Public access blocked (secure by default)
-Bucket configured as CloudFront origin
+Stores all website files (index.html, images).
+Bucket kept private.
+Accessible only through CloudFront via OAC (Origin Access Control).
 
-2. Amazon CloudFront
+2. Amazon CloudFront — Global CDN
 
-Global CDN distributing your website content
-Connected to S3 bucket through an Origin Access Control (OAC)
-HTTPS enforced
+Distributes content with low latency worldwide.
+Handles HTTPS enforcement.
+Caches static assets for performance.
 
-3. AWS Certificate Manager (ACM)
+Uses:
 
-Issued an SSL certificate for
-✔️ awsprojectdaisy.click
-✔️ www.awsprojectdaisy.click
+Origin Access Control (OAC) for secure S3 access.
+Alternate domain names (CNAMEs) for your domain.
+Default root object: index.html.
 
-4. Amazon Route 53
+3. AWS Certificate Manager (ACM) — SSL/TLS
 
-Registered the domain: awsprojectdaisy.click
-Created DNS records:
-A record → CloudFront distribution
-CNAME validation records for SSL certificate
-Redirect www → root domain
+Provides free, auto-renewing SSL certificate.
+Secures awsprojectdaisy.click and www.awsprojectdaisy.click.
+Integrated with CloudFront for HTTPS.
 
-🌐 Live Website
+4. Amazon Route 53 — DNS + Domain
 
-Site is deployed at:
+Hosts the awsprojectdaisy.click domain.
 
-🔗 http://awsprojectdaisy.click
-🔗 http://www.awsprojectdaisy.click
+DNS records:
 
-(both working after DNS propagation)
+A (Alias) → CloudFront (root domain)
+A (Alias) → CloudFront (www)
+Automatic ACM validation CNAMEs
+Enables reliable domain resolution globally.
 
-📂 Files Included
+5. Origin Access Control (OAC) — Security
 
-File	Purpose
-index.html	Main homepage
-Dogs.JPG	Image displayed on the website
+Prevents S3 bucket from being public.
+Ensures only CloudFront can read website files.
+Modern replacement for bucket policies and OAI.
 
-✨ What This Project Demonstrates
+🧩 File Structure
 
-Hosting static sites on AWS
-Using CloudFront for secure HTTPS delivery
-Managing custom domains with Route 53
-Creating and validating SSL certificates in ACM
-Configuring advanced DNS (A, CNAME, alias)
-Using OAC to secure S3 access
+awsprojectdaisy-website/
+│── index.html
+│── Dogs.JPG
+└── README.md
+
+🚀 Deployment Steps (High-Level)
+
+1. Create S3 Bucket
+
+Name matches domain (awsprojectdaisy.click).
+Block public access.
+Upload site files.
+
+2. Configure CloudFront
+
+Origin → S3 bucket.
+Enable Origin Access Control.
+
+Add CNAMEs:
+
+awsprojectdaisy.click
+www.awsprojectdaisy.click
+Attach ACM certificate.
+Default root object = index.html.
+
+3. Configure Route 53
+
+A (Alias) → CloudFront (root)
+A (Alias) → CloudFront (www)
+ACM validation CNAMEs auto-generated
+DNS propagation (1–10 minutes)
+
+4. Test Deployment
+
+Desktop + mobile
+http/https
+root + www
+CloudFront cache invalidation if needed
+
+🧪 Testing
+
+Website was tested for:
+
+✔ Mobile compatibility
+✔ Desktop compatibility
+✔ HTTPS encryption
+✔ Proper DNS routing
+✔ Fast global loading via CloudFront
+
+✨ Skills Demonstrated
+
+This project highlights:
+Cloud architecture design
+Static website hosting on AWS
+DNS management (Route 53)
+SSL/TLS management (ACM)
+Content Delivery Networks (CloudFront)
+Secure hosting using OAC
+S3 bucket best practices
+Domain linking & custom hosting
+Real-world troubleshooting
+
+📚 Future Improvements
+
+Add CI/CD pipeline (GitHub Actions → S3)
+Add monitoring (CloudWatch + CloudTrail)
+Deploy using Infrastructure as Code (Terraform or AWS CDK)
+Add multiple environments (dev / prod)
 
 👤 Author
 
-Daryoush1989
+Daryoush Waheed
