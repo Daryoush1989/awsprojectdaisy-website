@@ -8,8 +8,6 @@ Project is deployed and publicly accessible here:
 
 👉 https://awsprojectdaisy.click
 
-📸 Website Preview
-
 🧾 Project Overview
 
 This project demonstrates how to deploy a fully static website using modern, production-grade AWS cloud architecture.
