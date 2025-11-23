@@ -1,21 +1,21 @@
-awsprojectdaisy-website
+**awsprojectdaisy-website**
 
-Static Website Hosted on AWS (S3 + CloudFront + Route 53 + ACM)
+**Static Website Hosted on AWS (S3 + CloudFront + Route 53 + ACM)**
 
-🔗 Live Demo
+🔗** Live Demo**
 
 Project is deployed and publicly accessible here:
 
 👉 https://awsprojectdaisy.click
 
-🧾 Project Overview
+🧾 **Project Overview**
 
 This project demonstrates how to deploy a fully static website using modern, production-grade AWS cloud architecture.
 It includes secure HTTPS hosting, global content delivery, and custom domain routing.
 
 The goal of this project is to build real-world AWS experience and showcase professional cloud engineering skills to future employers.
 
-🏗️ AWS Architecture
+🏗️ **AWS Architecture**
 
 This project uses the following AWS services:
 
@@ -83,7 +83,7 @@ awsprojectdaisy-website/
 ```
 
 
-🚀 Deployment Steps (High-Level)
+🚀 **Deployment Steps (High-Level)**
 1. Create S3 Bucket
 
 Name matches domain (awsprojectdaisy.click).
@@ -128,7 +128,7 @@ root + www
 
 CloudFront cache invalidation if needed
 
-🧪 Testing
+🧪 **Testing**
 
 Website was tested for:
 
@@ -142,7 +142,7 @@ Website was tested for:
 
 ✔ Fast global loading via CloudFront
 
-✨ Skills Demonstrated
+✨ **Skills Demonstrated**
 
 This project highlights:
 
@@ -164,7 +164,7 @@ Domain linking & custom hosting
 
 Real-world troubleshooting
 
-📚 Future Improvements
+📚 **Future Improvements**
 
 Add CI/CD pipeline (GitHub Actions → S3)
 
@@ -174,6 +174,6 @@ Deploy using Infrastructure as Code (Terraform or AWS CDK)
 
 Add multiple environments (dev / prod)
 
-👤 Author
+👤 **Author**
 
 Daryoush Waheed
