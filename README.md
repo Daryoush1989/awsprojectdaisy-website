@@ -21,34 +21,26 @@ This project uses the following AWS services:
 
 1. Amazon S3 — Static Website Storage
 
-Stores all website files (index.html, images).
-
-Bucket kept private.
-
-Accessible only through CloudFront via OAC (Origin Access Control).
+Stores all website files (index.html, images). <br>
+Bucket kept private. <br>
+Accessible only through CloudFront via OAC (Origin Access Control). 
 
 2. Amazon CloudFront — Global CDN
 
-Distributes content with low latency worldwide.
-
-Handles HTTPS enforcement.
-
+Distributes content with low latency worldwide. <br>
+Handles HTTPS enforcement. <br>
 Caches static assets for performance.
 
 Uses:
 
-Origin Access Control (OAC) for secure S3 access.
-
-Alternate domain names (CNAMEs) for your domain.
-
+Origin Access Control (OAC) for secure S3 access. <br>
+Alternate domain names (CNAMEs) for your domain. <br>
 Default root object: index.html.
 
 3. AWS Certificate Manager (ACM) — SSL/TLS
 
-Provides free, auto-renewing SSL certificate.
-
-Secures awsprojectdaisy.click and www.awsprojectdaisy.click.
-
+Provides free, auto-renewing SSL certificate. <br>
+Secures awsprojectdaisy.click and www.awsprojectdaisy.click. <br>
 Integrated with CloudFront for HTTPS.
 
 4. Amazon Route 53 — DNS + Domain
@@ -57,20 +49,15 @@ Hosts the awsprojectdaisy.click domain.
 
 DNS records:
 
-A (Alias) → CloudFront (root domain)
-
-A (Alias) → CloudFront (www)
-
-Automatic ACM validation CNAMEs
-
+A (Alias) → CloudFront (root domain) <br>
+A (Alias) → CloudFront (www) <br>
+Automatic ACM validation CNAMEs <br>
 Enables reliable domain resolution globally.
 
 5. Origin Access Control (OAC) — Security
 
-Prevents S3 bucket from being public.
-
-Ensures only CloudFront can read website files.
-
+Prevents S3 bucket from being public. <br>
+Ensures only CloudFront can read website files. <br>
 Modern replacement for bucket policies and OAI.
 
 ## 📁 File Structure
@@ -86,26 +73,21 @@ awsprojectdaisy-website/
 🚀 **Deployment Steps (High-Level)**
 1. Create S3 Bucket
 
-Name matches domain (awsprojectdaisy.click).
-
-Block public access.
-
+Name matches domain (awsprojectdaisy.click). <br>
+Block public access. <br>
 Upload site files.
 
 2. Configure CloudFront
 
-Origin → S3 bucket.
-
+Origin → S3 bucket. <br>
 Enable Origin Access Control.
 
 Add CNAMEs:
 
-awsprojectdaisy.click
-
+awsprojectdaisy.click <br>
 www.awsprojectdaisy.click
 
-Attach ACM certificate.
-
+Attach ACM certificate. <br>
 Default root object = index.html.
 
 3. Configure Route 53
