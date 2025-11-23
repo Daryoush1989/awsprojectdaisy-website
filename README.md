@@ -85,75 +85,53 @@ Enable Origin Access Control.
 Add CNAMEs:
 
 awsprojectdaisy.click <br>
-www.awsprojectdaisy.click
-
+www.awsprojectdaisy.click <br>
 Attach ACM certificate. <br>
 Default root object = index.html.
 
 3. Configure Route 53
 
-A (Alias) → CloudFront (root)
-
-A (Alias) → CloudFront (www)
-
-ACM validation CNAMEs auto-generated
-
+A (Alias) → CloudFront (root) <br>
+A (Alias) → CloudFront (www) <br>
+ACM validation CNAMEs auto-generated <br>
 DNS propagation (1–10 minutes)
 
 4. Test Deployment
 
-Desktop + mobile
-
-http/https
-
-root + www
-
+Desktop + mobile <br>
+http/https <br>
+root + www <br>
 CloudFront cache invalidation if needed
 
 🧪 **Testing**
 
 Website was tested for:
 
-✔ Mobile compatibility
-
-✔ Desktop compatibility
-
-✔ HTTPS encryption
-
-✔ Proper DNS routing
-
+✔ Mobile compatibility <br>
+✔ Desktop compatibility <br>
+✔ HTTPS encryption <br>
+✔ Proper DNS routing <br>
 ✔ Fast global loading via CloudFront
 
 ✨ **Skills Demonstrated**
 
 This project highlights:
 
-Cloud architecture design
-
-Static website hosting on AWS
-
-DNS management (Route 53)
-
-SSL/TLS management (ACM)
-
-Content Delivery Networks (CloudFront)
-
-Secure hosting using OAC
-
-S3 bucket best practices
-
-Domain linking & custom hosting
-
+Cloud architecture design <br>
+Static website hosting on AWS <br>
+DNS management (Route 53) <br>
+SSL/TLS management (ACM) <br>
+Content Delivery Networks (CloudFront) <br>
+Secure hosting using OAC <br>
+S3 bucket best practices <br>
+Domain linking & custom hosting <br>
 Real-world troubleshooting
 
 📚 **Future Improvements**
 
-Add CI/CD pipeline (GitHub Actions → S3)
-
-Add monitoring (CloudWatch + CloudTrail)
-
-Deploy using Infrastructure as Code (Terraform or AWS CDK)
-
+Add CI/CD pipeline (GitHub Actions → S3) <br>
+Add monitoring (CloudWatch + CloudTrail) <br>
+Deploy using Infrastructure as Code (Terraform or AWS CDK) <br>
 Add multiple environments (dev / prod)
 
 👤 **Author**
