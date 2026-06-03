@@ -1,139 +1,92 @@
-**awsprojectdaisy-website**
+# AWS Project Daisy Website
 
-**Static Website Hosted on AWS (S3 + CloudFront + Route 53 + ACM)**
+## Overview
 
-🔗** Live Demo**
+AWS Project Daisy Website is a static website hosting project that demonstrates secure delivery of a simple website through Amazon S3, CloudFront, Route 53, and AWS Certificate Manager.
 
-Project is deployed and publicly accessible here:
+The repository contains the static website files and documentation for the AWS hosting architecture. Before public release, review the website HTML for personal contact details and replace them with placeholders such as `<email-address>` if needed.
 
-👉 https://awsprojectdaisy.click
+## Business Problem
 
-🧾 **Project Overview**
+Organizations often need a low-cost, secure, and globally available way to host static websites. This project demonstrates a common AWS pattern where S3 stores the website assets privately and CloudFront provides public HTTPS delivery.
 
-This project demonstrates how to deploy a fully static website using modern, production-grade AWS cloud architecture.
-It includes secure HTTPS hosting, global content delivery, and custom domain routing.
+## Architecture
 
-The goal of this project is to build real-world AWS experience and showcase professional cloud engineering skills to future employers.
+High-level architecture:
 
-🏗️ **AWS Architecture**
-
-This project uses the following AWS services:
-
-1. Amazon S3 — Static Website Storage
-
-Stores all website files (index.html, images). <br>
-Bucket kept private. <br>
-Accessible only through CloudFront via OAC (Origin Access Control). 
-
-2. Amazon CloudFront — Global CDN
-
-Distributes content with low latency worldwide. <br>
-Handles HTTPS enforcement. <br>
-Caches static assets for performance.
-
-Uses:
-
-Origin Access Control (OAC) for secure S3 access. <br>
-Alternate domain names (CNAMEs) for your domain. <br>
-Default root object: index.html.
-
-3. AWS Certificate Manager (ACM) — SSL/TLS
-
-Provides free, auto-renewing SSL certificate. <br>
-Secures awsprojectdaisy.click and www.awsprojectdaisy.click. <br>
-Integrated with CloudFront for HTTPS.
-
-4. Amazon Route 53 — DNS + Domain
-
-Hosts the awsprojectdaisy.click domain.
-
-DNS records:
-
-A (Alias) → CloudFront (root domain) <br>
-A (Alias) → CloudFront (www) <br>
-Automatic ACM validation CNAMEs <br>
-Enables reliable domain resolution globally.
-
-5. Origin Access Control (OAC) — Security
-
-Prevents S3 bucket from being public. <br>
-Ensures only CloudFront can read website files. <br>
-Modern replacement for bucket policies and OAI.
-
-## 📁 File Structure
-
-```
-awsprojectdaisy-website/
-│── index.html
-│── Dogs.JPG
-└── README.md
+```text
+Browser
+  -> Route 53 DNS
+  -> CloudFront distribution with HTTPS
+  -> Origin Access Control
+  -> Private S3 bucket containing static assets
 ```
 
+The project also uses ACM for TLS certificates and Route 53 for custom domain routing.
 
-🚀 **Deployment Steps (High-Level)**
-1. Create S3 Bucket
+## AWS Services Used
 
-Name matches domain (awsprojectdaisy.click). <br>
-Block public access. <br>
-Upload site files.
+- Amazon S3
+- Amazon CloudFront
+- CloudFront Origin Access Control
+- AWS Certificate Manager
+- Amazon Route 53
+- AWS IAM / bucket policy controls
 
-2. Configure CloudFront
+## Tools Used
 
-Origin → S3 bucket. <br>
-Enable Origin Access Control.
+- HTML
+- Static image assets
+- AWS Management Console
+- Git and GitHub
 
-Add CNAMEs:
+## Security Features
 
-awsprojectdaisy.click <br>
-www.awsprojectdaisy.click <br>
-Attach ACM certificate. <br>
-Default root object = index.html.
+- S3 bucket is intended to remain private.
+- CloudFront uses Origin Access Control to access S3.
+- HTTPS is provided through ACM.
+- Public access is served through CloudFront rather than direct S3 object exposure.
+- DNS is managed through Route 53.
 
-3. Configure Route 53
+## Deployment Summary
 
-A (Alias) → CloudFront (root) <br>
-A (Alias) → CloudFront (www) <br>
-ACM validation CNAMEs auto-generated <br>
-DNS propagation (1–10 minutes)
+The repository documents a console-built static website deployment. The live/custom domain should be represented in public portfolio documentation as `<domain-name>` unless you intentionally want to disclose it. The current website HTML should also be reviewed for personal contact information before the repository is made public.
 
-4. Test Deployment
+No deployment commands were run during this README refresh.
 
-Desktop + mobile <br>
-http/https <br>
-root + www <br>
-CloudFront cache invalidation if needed
+## Testing and Validation
 
-🧪 **Testing**
+Validation includes:
 
-Website was tested for:
+- Opening the root domain and `www` domain over HTTPS
+- Confirming HTTP redirects or HTTPS enforcement through CloudFront settings
+- Confirming CloudFront serves the default root object
+- Confirming the S3 bucket is not publicly readable
+- Testing the website on desktop and mobile screen sizes
 
-✔ Mobile compatibility <br>
-✔ Desktop compatibility <br>
-✔ HTTPS encryption <br>
-✔ Proper DNS routing <br>
-✔ Fast global loading via CloudFront
+## Evidence / Screenshots
 
-✨ **Skills Demonstrated**
+The repository currently contains the website files rather than a dedicated evidence folder. If screenshots are added later, redact account IDs, distribution IDs if not needed, billing details, IAM details, private bucket policy information, and personal contact details.
 
-This project highlights:
+## Cost Control
 
-Cloud architecture design <br>
-Static website hosting on AWS <br>
-DNS management (Route 53) <br>
-SSL/TLS management (ACM) <br>
-Content Delivery Networks (CloudFront) <br>
-Secure hosting using OAC <br>
-S3 bucket best practices <br>
-Domain linking & custom hosting <br>
-Real-world troubleshooting
+Static website hosting with S3 and CloudFront is typically low cost for small portfolio traffic. Costs can still come from Route 53 hosted zones, domain registration, CloudFront requests, data transfer, and S3 storage.
 
-📚 **Future Improvements**
+## Cleanup
 
-Add CI/CD pipeline (GitHub Actions → S3) <br>
-Add monitoring (CloudWatch + CloudTrail) <br>
-Deploy using Infrastructure as Code (Terraform or AWS CDK) <br>
-Add multiple environments (dev / prod)
+Cleanup should include deleting CloudFront distributions after disabling them, removing Route 53 records or hosted zones when no longer needed, deleting ACM certificates where appropriate, and emptying/removing the S3 bucket after preserving any required evidence.
 
-👤 **Author**
+## Lessons Learned
 
-Daryoush Waheed
+- CloudFront and OAC are better public delivery patterns than exposing S3 buckets directly.
+- HTTPS, DNS, caching, and origin security are all part of a professional static site deployment.
+- Even simple websites benefit from clear cleanup and cost tracking.
+
+## Future Improvements
+
+- Add Infrastructure as Code using Terraform or AWS CDK.
+- Add CI/CD for automatic static asset deployment.
+- Add CloudWatch metrics or synthetic checks.
+- Add cache invalidation workflow documentation.
+- Add sanitized screenshots and architecture evidence.
+- Replace personal contact details in the static HTML with placeholders before public release.
